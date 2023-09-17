@@ -3,7 +3,7 @@
 GET http://localhost:5000/api/add/wazirx/data HTTP/1.1
 
 ### VIEW WAZIRX DATA ON TEMPLATE
-GET http://localhost:5000/api/view/wazrix/data HTTP/1.1
+GET http://localhost:5000/api/view/wazirx/data HTTP/1.1
 
 
 ### WAZIRX API TEST
