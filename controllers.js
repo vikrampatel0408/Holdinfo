@@ -45,10 +45,16 @@ async function viewWazirxData(req, res) {
         // Fetch Data from DB
         const aCurrencyData = await CurrencyModel.find({}).limit(10).lean()
         console.log(aCurrencyData[0])
+        var iAverage;
+        var iSum= 0 ;
+        aCurrencyData.forEach(element => {
+            iSum += parseInt(element.sBuy);
+        });
+        iAverage = iSum/10;
         const template = fs.readFileSync('views/' + 'home.ejs', {
             encoding: 'utf-8' // Unicode Transformation Format (UTF).
           })
-        const renderedData = ejs.render(template, { response: aCurrencyData, title: 'Vikram Patel' })
+        const renderedData = ejs.render(template, { average:iAverage, response: aCurrencyData, title: 'Vikram Patel' })
         return res.status(201).send(renderedData)
     } catch (error) {
         console.log(error)
